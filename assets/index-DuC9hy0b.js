@@ -1,4 +1,4 @@
-(function(){const s=document.createElement("link").relList;if(s&&s.supports&&s.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))r(e);new MutationObserver(e=>{for(const o of e)if(o.type==="childList")for(const i of o.addedNodes)i.tagName==="LINK"&&i.rel==="modulepreload"&&r(i)}).observe(document,{childList:!0,subtree:!0});function l(e){const o={};return e.integrity&&(o.integrity=e.integrity),e.referrerPolicy&&(o.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?o.credentials="include":e.crossOrigin==="anonymous"?o.credentials="omit":o.credentials="same-origin",o}function r(e){if(e.ep)return;e.ep=!0;const o=l(e);fetch(e.href,o)}})();const b=()=>`
+(function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const s of document.querySelectorAll('link[rel="modulepreload"]'))i(s);new MutationObserver(s=>{for(const o of s)if(o.type==="childList")for(const d of o.addedNodes)d.tagName==="LINK"&&d.rel==="modulepreload"&&i(d)}).observe(document,{childList:!0,subtree:!0});function a(s){const o={};return s.integrity&&(o.integrity=s.integrity),s.referrerPolicy&&(o.referrerPolicy=s.referrerPolicy),s.crossOrigin==="use-credentials"?o.credentials="include":s.crossOrigin==="anonymous"?o.credentials="omit":o.credentials="same-origin",o}function i(s){if(s.ep)return;s.ep=!0;const o=a(s);fetch(s.href,o)}})();const m=()=>`
       <main class="p-4">
         <div class="mb-4 bg-white rounded-lg shadow p-4">
           <textarea class="w-full p-2 border rounded" placeholder="무슨 생각을 하고 계신가요?"></textarea>
@@ -88,7 +88,7 @@
           </div>
         </div>
       </main>
-`,p=()=>{const t=JSON.parse(localStorage.getItem("user"))||{username:"",email:"",bio:""};return`
+`,f=()=>{const t=JSON.parse(localStorage.getItem("user"))||{username:"",email:"",bio:""};return`
         <main class="p-4">
           <div class="bg-white p-8 rounded-lg shadow-md">
             <h2 class="text-2xl font-bold text-center text-blue-600 mb-8">
@@ -146,7 +146,7 @@
             </form>
           </div>
         </main>
-  `};document.body.addEventListener("submit",function(t){if(t.target&&t.target.id==="profile-form"){t.preventDefault();const s=document.getElementById("username").value,l=document.getElementById("email").value,r=document.getElementById("bio").value;localStorage.setItem("user",JSON.stringify({username:s,email:l,bio:r}))}});const a={state:{loggedIn:!!localStorage.getItem("user")},setLoggedIn(t){this.state.loggedIn=t}},m=()=>`
+  `};document.body.addEventListener("submit",function(t){if(t.target&&t.target.id==="profile-form"){t.preventDefault();const e=document.getElementById("username").value,a=document.getElementById("email").value,i=document.getElementById("bio").value;localStorage.setItem("user",JSON.stringify({username:e,email:a,bio:i}))}});const n={state:{loggedIn:!!localStorage.getItem("user")},setLoggedIn(t){this.state.loggedIn=t}},g=location.hostname.includes("github.io"),l=g?"/front_5th_chapter1-1":"",p=()=>`
   <main class="bg-gray-100 flex items-center justify-center min-h-screen">
     <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
       <h1 class="text-2xl font-bold text-center text-blue-600 mb-8">항해플러스</h1>
@@ -168,7 +168,7 @@
       </div>
     </div>
   </main>
-`;document.body.addEventListener("submit",function(t){if(t.target&&t.target.id==="login-form"){t.preventDefault();const s=document.getElementById("username").value;s&&(localStorage.setItem("user",JSON.stringify({username:s,email:"",bio:""})),a.setLoggedIn(!0),window.history.pushState({},"","/"),n())}});const f=()=>`
+`;document.body.addEventListener("submit",function(t){if(t.target&&t.target.id==="login-form"){t.preventDefault();const e=document.getElementById("username").value;e&&(localStorage.setItem("user",JSON.stringify({username:e,email:"",bio:""})),n.setLoggedIn(!0),window.history.pushState({},"",l+"/"),r())}});const h=()=>`
   <main class="bg-gray-100 flex items-center justify-center min-h-screen">
     <div class="bg-white p-8 rounded-lg shadow-md w-full text-center" style="max-width: 480px">
       <h1 class="text-2xl font-bold text-blue-600 mb-4">항해플러스</h1>
@@ -182,32 +182,32 @@
       </a>
     </div>
   </main>
-`,d=t=>location.pathname===t,g=()=>{localStorage.removeItem("user"),a.setLoggedIn(!1),window.history.pushState({},"","/login"),n()};document.body.addEventListener("click",function(t){t.target&&t.target.id==="logout"&&g()});const h=t=>`
+`,c=t=>(location.pathname.replace(l,"")||"/")===t,v=()=>{localStorage.removeItem("user"),n.setLoggedIn(!1),window.history.pushState({},"",l+"/login"),r()};document.body.addEventListener("click",function(t){t.target&&t.target.id==="logout"&&v()});const x=t=>`
   <header class="bg-blue-600 text-white p-4 sticky top-0">
     <h1 class="text-2xl font-bold">항해플러스</h1>
   </header>
 
   <nav class="bg-white shadow-md p-2 sticky top-14">
     <ul class="flex justify-around">
-      <li><a href="/" class="${d("/")?"text-blue-600":"text-gray-600"}">홈</a></li>
+      <li><a href="/" class="${c("/")?"text-blue-600":"text-gray-600"}">홈</a></li>
       ${t?`
-            <li><a href="/profile" class="${d("/profile")?"text-blue-600":"text-gray-600"}">프로필</a></li>
+            <li><a href="/profile" class="${c("/profile")?"text-blue-600":"text-gray-600"}">프로필</a></li>
             <li><a href="" id="logout" class="text-gray-600">로그아웃</a></li>
           `:`
-            <li><a href="/login" class="${d("/login")?"text-blue-600":"text-gray-600"}">로그인</a></li>
+            <li><a href="/login" class="${c("/login")?"text-blue-600":"text-gray-600"}">로그인</a></li>
           `}
     </ul>
   </nav>
-`,v=()=>`
+`,y=()=>`
   <footer class="bg-gray-200 p-4 text-center">
     <p>&copy; 2024 항해플러스. All rights reserved.</p>
   </footer>
-`,c=t=>`
+`,u=t=>`
 <div class="bg-gray-100 min-h-screen flex justify-center">
     <div class="max-w-md w-full">
-    ${h(a.state.loggedIn)}
+    ${x(n.state.loggedIn)}
         ${t}
-    ${v()}
+    ${y()}
     </div>
 </div>
-`,u={"/":()=>c(b()),"/profile":()=>c(p()),"/login":m,"*":f},n=()=>{const t=window.location.pathname,s=document.querySelector("#root");if(t==="/login"&&a.state.loggedIn){window.history.pushState({},"","/"),s.innerHTML=c(b());return}if(t==="/profile"&&!a.state.loggedIn){window.history.pushState({},"","/login"),s.innerHTML=m();return}const l=u[t]||u["*"];s.innerHTML=l()};window.addEventListener("popstate",n);document.addEventListener("DOMContentLoaded",()=>{n(),document.body.addEventListener("click",t=>{if(t.target.matches('a[href^="/"]')){t.preventDefault();const s=t.target.getAttribute("href");window.history.pushState({},"",s),n()}})});
+`,b={"/":()=>u(m()),"/profile":()=>u(f()),"/login":p,"*":h},r=()=>{const t=window.location.pathname.replace(l,"")||"/",e=document.querySelector("#root");if(t==="/login"&&n.state.loggedIn){window.history.pushState({},"",l+"/"),e.innerHTML=u(m());return}if(t==="/profile"&&!n.state.loggedIn){window.history.pushState({},"",l+"/login"),e.innerHTML=p();return}const a=b[t]||b["*"];e.innerHTML=a()};window.addEventListener("popstate",r);document.addEventListener("DOMContentLoaded",()=>{r(),document.body.addEventListener("click",t=>{if(t.target.matches('a[href^="/"]')){t.preventDefault();const e=t.target.getAttribute("href");window.history.pushState({},"",l+e),r()}})});
