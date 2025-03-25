@@ -192,7 +192,7 @@
       <li><a href="/" class="${c("/")?"text-blue-600":"text-gray-600"}">홈</a></li>
       ${t?`
             <li><a href="/profile" class="${c("/profile")?"text-blue-600":"text-gray-600"}">프로필</a></li>
-            <li><a href=`` id="logout" class="text-gray-600">로그아웃</a></li>
+            <li><a href="${l}/" id="logout" class="text-gray-600">로그아웃</a></li>
           `:`
             <li><a href="/login" class="${c("/login")?"text-blue-600":"text-gray-600"}">로그인</a></li>
           `}
