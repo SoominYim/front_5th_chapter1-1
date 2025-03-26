@@ -42,6 +42,7 @@
         l.hostname +
         (l.port ? ":" + l.port : "") +
         basePath +
+        "/" +
         remainingPath +
         (search ? "&q=" + search.slice(1).replace(/&/g, "~and~") : "") +
         hash;
