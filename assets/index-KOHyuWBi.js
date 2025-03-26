@@ -182,7 +182,7 @@
       </a>
     </div>
   </main>
-`,c=t=>(location.pathname.replace(l,"")||"/")===t,v=()=>{localStorage.removeItem("user"),n.setLoggedIn(!1),window.history.pushState({},"",l+"/login"),r()};document.body.addEventListener("click",function(t){t.target&&t.target.id==="logout"&&v()});const x=t=>`
+`,c=t=>(location.pathname.replace(l,"")||"/")===t,v=()=>{localStorage.removeItem("user"),n.setLoggedIn(!1),window.history.pushState({},"","/login"),r()};document.body.addEventListener("click",function(t){t.target&&t.target.id==="logout"&&v()});const x=t=>`
   <header class="bg-blue-600 text-white p-4 sticky top-0">
     <h1 class="text-2xl font-bold">항해플러스</h1>
   </header>
@@ -192,7 +192,7 @@
       <li><a href="/" class="${c("/")?"text-blue-600":"text-gray-600"}">홈</a></li>
       ${t?`
             <li><a href="/profile" class="${c("/profile")?"text-blue-600":"text-gray-600"}">프로필</a></li>
-            <li><a href="#" id="logout" class="text-gray-600">로그아웃</a></li>
+            <li><a href="${l}" id="logout" class="text-gray-600">로그아웃</a></li>
           `:`
             <li><a href="/login" class="${c("/login")?"text-blue-600":"text-gray-600"}">로그인</a></li>
           `}
