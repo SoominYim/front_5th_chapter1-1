@@ -1,1 +1,0 @@
-import"./modulepreload-polyfill-B5Qt9EMX.js";window.addEventListener("hashchange",()=>{const n=window.location.hash.slice(1),e=document.querySelector(`[data-route="${n}"]`);e&&(document.querySelector("main").innerHTML=e.innerHTML)});
