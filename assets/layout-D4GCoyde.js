@@ -1,4 +1,4 @@
-(function(){const o=document.createElement("link").relList;if(o&&o.supports&&o.supports("modulepreload"))return;for(const t of document.querySelectorAll('link[rel="modulepreload"]'))a(t);new MutationObserver(t=>{for(const s of t)if(s.type==="childList")for(const r of s.addedNodes)r.tagName==="LINK"&&r.rel==="modulepreload"&&a(r)}).observe(document,{childList:!0,subtree:!0});function n(t){const s={};return t.integrity&&(s.integrity=t.integrity),t.referrerPolicy&&(s.referrerPolicy=t.referrerPolicy),t.crossOrigin==="use-credentials"?s.credentials="include":t.crossOrigin==="anonymous"?s.credentials="omit":s.credentials="same-origin",s}function a(t){if(t.ep)return;t.ep=!0;const s=n(t);fetch(t.href,s)}})();const d=[{name:"홍길동",time:"5분 전",content:"오늘 날씨가 정말 좋네요. 다들 좋은 하루 보내세요!"},{name:"김철수",time:"15분 전",content:"새로운 프로젝트를 시작했어요. 열심히 코딩 중입니다!"},{name:"이영희",time:"30분 전",content:"오늘 점심 메뉴 추천 받습니다. 뭐가 좋을까요?"},{name:"박민수",time:"1시간 전",content:"주말에 등산 가실 분 계신가요? 함께 가요!"},{name:"정수연",time:"2시간 전",content:"새로 나온 영화 재미있대요. 같이 보러 갈 사람?"}],f=()=>`
+(function(){const o=document.createElement("link").relList;if(o&&o.supports&&o.supports("modulepreload"))return;for(const t of document.querySelectorAll('link[rel="modulepreload"]'))a(t);new MutationObserver(t=>{for(const s of t)if(s.type==="childList")for(const r of s.addedNodes)r.tagName==="LINK"&&r.rel==="modulepreload"&&a(r)}).observe(document,{childList:!0,subtree:!0});function n(t){const s={};return t.integrity&&(s.integrity=t.integrity),t.referrerPolicy&&(s.referrerPolicy=t.referrerPolicy),t.crossOrigin==="use-credentials"?s.credentials="include":t.crossOrigin==="anonymous"?s.credentials="omit":s.credentials="same-origin",s}function a(t){if(t.ep)return;t.ep=!0;const s=n(t);fetch(t.href,s)}})();const d=[{name:"홍길동",time:"5분 전",content:"오늘 날씨가 정말 좋네요. 다들 좋은 하루 보내세요!"},{name:"김철수",time:"15분 전",content:"새로운 프로젝트를 시작했어요. 열심히 코딩 중입니다!"},{name:"이영희",time:"30분 전",content:"오늘 점심 메뉴 추천 받습니다. 뭐가 좋을까요?"},{name:"박민수",time:"1시간 전",content:"주말에 등산 가실 분 계신가요? 함께 가요!"},{name:"정수연",time:"2시간 전",content:"새로 나온 영화 재미있대요. 같이 보러 갈 사람?"}],b=()=>`
       <main class="p-4">
         <div class="mb-4 bg-white rounded-lg shadow p-4">
           <textarea class="w-full p-2 border rounded" placeholder="무슨 생각을 하고 계신가요?"></textarea>
@@ -25,7 +25,7 @@
           `).join("")}
         </div>
       </main>
-`,g=()=>{const e=JSON.parse(localStorage.getItem("user"))||{username:"",email:"",bio:""};return`
+`,f=()=>{const e=JSON.parse(localStorage.getItem("user"))||{username:"",email:"",bio:""};return`
         <main class="p-4">
           <div class="bg-white p-8 rounded-lg shadow-md">
             <h2 class="text-2xl font-bold text-center text-blue-600 mb-8">
@@ -83,7 +83,7 @@
             </form>
           </div>
         </main>
-  `};document.body.addEventListener("submit",function(e){if(e.target&&e.target.id==="profile-form"){e.preventDefault();const o=document.getElementById("username").value,n=document.getElementById("email").value,a=document.getElementById("bio").value;localStorage.setItem("user",JSON.stringify({username:o,email:n,bio:a}))}});const l={state:{loggedIn:!!localStorage.getItem("user")},setLoggedIn(e){this.state.loggedIn=e},actions:{login(e){this.isHash||(localStorage.setItem("user",JSON.stringify({username:e,email:"",bio:""})),l.setLoggedIn(!0))},logout(){this.isHash||(localStorage.removeItem("user"),l.setLoggedIn(!1))}}},p=()=>`
+  `};document.body.addEventListener("submit",function(e){if(e.target&&e.target.id==="profile-form"){e.preventDefault();const o=document.getElementById("username").value,n=document.getElementById("email").value,a=document.getElementById("bio").value;localStorage.setItem("user",JSON.stringify({username:o,email:n,bio:a}))}});const l={state:{loggedIn:!!localStorage.getItem("user")},setLoggedIn(e){this.state.loggedIn=e},actions:{login(e){this.isHash||(localStorage.setItem("user",JSON.stringify({username:e,email:"",bio:""})),l.setLoggedIn(!0))},logout(){this.isHash||(localStorage.removeItem("user"),l.setLoggedIn(!1))}}},g=()=>`
   <main class="bg-gray-100 flex items-center justify-center min-h-screen">
     <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
       <h1 class="text-2xl font-bold text-center text-blue-600 mb-8">항해플러스</h1>
@@ -105,7 +105,7 @@
       </div>
     </div>
   </main>
-`;document.body.addEventListener("submit",function(e){if(e.target&&e.target.id==="login-form"){e.preventDefault();const o=document.getElementById("username").value;l.actions.login(o)}});const h=()=>`
+`;document.body.addEventListener("submit",function(e){if(e.target&&e.target.id==="login-form"){e.preventDefault();const o=document.getElementById("username").value;l.actions.login(o)}});const p=()=>`
   <main class="bg-gray-100 flex items-center justify-center min-h-screen">
     <div class="bg-white p-8 rounded-lg shadow-md w-full text-center" style="max-width: 480px">
       <h1 class="text-2xl font-bold text-blue-600 mb-4">항해플러스</h1>
@@ -119,7 +119,7 @@
       </a>
     </div>
   </main>
-`,c=location.hostname.includes("github.io"),u=c?"/front_5th_chapter1-1":"",i=e=>(window.location.hash?window.location.hash.slice(1)||"/":window.location.pathname.replace(u,"")||"/")===e;document.body.addEventListener("click",function(e){e.target&&e.target.id==="logout"&&(e.preventDefault(),l.actions.logout())});const m=e=>`
+`;location.hostname.includes("github.io");const c="",i=e=>(window.location.hash?window.location.hash.slice(1)||"/":window.location.pathname.replace(c,"")||"/")===e;document.body.addEventListener("click",function(e){e.target&&e.target.id==="logout"&&(e.preventDefault(),l.actions.logout())});const u=e=>`
   <header class="bg-blue-600 text-white p-4 sticky top-0">
     <h1 class="text-2xl font-bold">항해플러스</h1>
   </header>
@@ -135,16 +135,16 @@
           `}
     </ul>
   </nav>
-`,b=()=>`
+`,m=()=>`
   <footer class="bg-gray-200 p-4 text-center">
     <p>&copy; 2024 항해플러스. All rights reserved.</p>
   </footer>
-`,x=e=>`
+`,h=e=>`
 <div class="bg-gray-100 min-h-screen flex justify-center">
     <div class="max-w-md w-full">
-    ${m(l.state.loggedIn)}
+    ${u(l.state.loggedIn)}
         ${e}
-    ${b()}
+    ${m()}
     </div>
 </div>
-`;export{u as B,h as E,f as H,x as L,g as P,p as a,l as s};
+`;export{c as B,p as E,b as H,h as L,f as P,g as a,l as s};
